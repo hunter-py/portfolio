@@ -1,0 +1,40 @@
+.user_data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input.ng-touched.ng-invalid{
+    border:1px solid red;
+    border-style: dotted;
+}
+
+option{
+    img{
+        width: 10px;
+    }
+}
+
+.options-bar{
+    button{
+        height:50px;
+        width: 50px;
+        margin:5px;
+    }
+
+    .ng-touched.ng-invalid{
+        border:1px solid red;
+    }
+}
+
+.project{
+    border: 2px solid;
+    padding: 5px;
+    box-shadow: 5px 5px;
+    margin-bottom: 15px;
+    button{
+        height:50px;
+        width: 50px;
+        margin:5px;
+    }
+}

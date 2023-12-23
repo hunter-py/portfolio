@@ -1,0 +1,139 @@
+<header>
+  <h1>Your own Portfolio</h1>
+</header>
+<main>
+  <div class="user_data">
+    <form
+      [formGroup]="my_Form"
+      (ngSubmit)="router.navigate(['/my-profile'])"
+      class="form_data"
+    >
+      <label for="Username">User Name</label>
+      <input
+        placeholder="Your Name"
+        id="Username"
+        class="form-control"
+        formControlName="fullName"
+        type="text"
+      />
+      <label for="email">User Email</label>
+      <input
+        placeholder="Your Email"
+        id="email"
+        class="form-control"
+        formControlName="email"
+        type="email"
+      />
+      <label for="photo">photo</label>
+      <input
+        placeholder="Photo"
+        id="photo"
+        class="form-control"
+        formControlName="photo"
+        type="file"
+        accept="image/*"
+        (change)="saveImage($event)"
+      />
+      <div formArrayName="skills">
+        <label for="skills">Skills</label>
+        <div *ngFor="let skill of skills.controls; let i = index">
+          <div class="options-bar">
+            <select
+              [formControlName]="i"
+              id="skills"
+              class="form-control option"
+            >
+              <option
+                *ngFor="let skill of defaultSkills"
+                class="form-control"
+                [value]="skill.value"
+              >
+                {{ skill.name }}
+              </option>
+            </select>
+            <button class="btn btn-primary" type="button" (click)="addSkills()">
+              +</button
+            ><button
+              class="btn btn-danger"
+              type="button"
+              (click)="removeskill(i)"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <label for="experience" class="form-check-label">Experience</label>
+      <input
+        type="checkbox"
+        value="true"
+        class="form-check-input"
+        id="experience"
+        #experince
+        formControlName="experience"
+      />
+      <div *ngIf="experince.checked">
+        <label for="company" class="form-control-label">Company</label>
+        <input
+          type="text"
+          class="form-control"
+          id="company"
+          formControlName="company"
+        />
+      </div>
+      <div formArrayName="projects">
+        <h4>Projects</h4>
+        <div
+          *ngFor="let my_project of projects.controls; let i = index"
+          [formGroupName]="i"
+          class="project"
+        >
+          <label for="project_name" class="form-control-label"
+            >Project Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="project_name"
+            formControlName="name"
+          />
+          <label for="project_link" class="form-control-label"
+            >Project Link</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="project_link"
+            formControlName="link"
+          />
+          <label for="project_about" class="form-control-label"
+            >About Project</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="project_about"
+            formControlName="about"
+          />
+          <button class="btn btn-primary" type="button" (click)="addProject()">
+            +</button
+          ><button
+            class="btn btn-danger"
+            type="button"
+            (click)="removeProject(i)"
+          >
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        (click)="submit()"
+        [disabled]="!my_Form.valid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</main>
