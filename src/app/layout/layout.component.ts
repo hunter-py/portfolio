@@ -28,6 +28,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
     this.my_Form = this.fb.group({
       fullName: ['', Validators.required],
+      phone:['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       photo: ['', [Validators.required]],
       skills: this.fb.array([]),
@@ -36,7 +37,8 @@ export class LayoutComponent implements OnInit {
       designation: [''],
       about: [''],
       projects: this.fb.array([]),
-      
+      linkedin:[''],
+      github:['']
     });
     this.addSkills();
     this.addProject();

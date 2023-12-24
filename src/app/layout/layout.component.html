@@ -2,76 +2,90 @@
   <h1>Your own Portfolio</h1>
 </header>
 <main>
-  <div class="user_data">
+  <div class="user_data col-md-12">
     <form
       [formGroup]="my_Form"
       (ngSubmit)="router.navigate(['/my-profile'])"
       class="form_data"
     >
-      <label for="Username">User Name</label>
-      <input
-        placeholder="Your Name"
-        id="Username"
-        class="form-control"
-        formControlName="fullName"
-        type="text"
-      />
-      <label for="email">User Email</label>
-      <input
-        placeholder="Your Email"
-        id="email"
-        class="form-control"
-        formControlName="email"
-        type="email"
-      />
-      <label for="photo">photo</label>
-      <input
-        placeholder="Photo"
-        id="photo"
-        class="form-control"
-        formControlName="photo"
-        type="file"
-        accept="image/*"
-        (change)="saveImage($event)"
-      />
-      <div formArrayName="skills">
-        <label for="skills">Skills</label>
-        <div *ngFor="let skill of skills.controls; let i = index">
-          <div class="options-bar">
-            <select
-              [formControlName]="i"
-              id="skills"
-              class="form-control option"
-            >
-              <option
-                *ngFor="let skill of defaultSkills"
-                class="form-control"
-                [value]="skill.value"
+      <div class="about">
+        <label for="Username">User Name</label>
+        <input
+          placeholder="Your Name"
+          id="Username"
+          class="form-control"
+          formControlName="fullName"
+          type="text"
+        />
+        <label for="phone">Phone No</label>
+        <input
+          placeholder="Phone Number"
+          id="phone"
+          class="form-control"
+          formControlName="phone"
+          type="text"
+        />
+        <label for="email">User Email</label>
+        <input
+          placeholder="Your Email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          type="email"
+        />
+        <label for="photo">photo</label>
+        <input
+          placeholder="Photo"
+          id="photo"
+          class="form-control"
+          formControlName="photo"
+          type="file"
+          accept="image/*"
+          (change)="saveImage($event)"
+        />
+        <div formArrayName="skills">
+          <label for="skills">Skills</label>
+          <div *ngFor="let skill of skills.controls; let i = index">
+            <div class="options-bar">
+              <select
+                [formControlName]="i"
+                id="skills"
+                class="form-control option"
               >
-                {{ skill.name }}
-              </option>
-            </select>
-            <button class="btn btn-primary" type="button" (click)="addSkills()">
-              +</button
-            ><button
-              class="btn btn-danger"
-              type="button"
-              (click)="removeskill(i)"
-            >
-              <i class="fa fa-trash"></i>
-            </button>
+                <option
+                  *ngFor="let skill of defaultSkills"
+                  class="form-control"
+                  [value]="skill.value"
+                >
+                  {{ skill.name }}
+                </option>
+              </select>
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="addSkills()"
+              >
+                +</button
+              ><button
+                class="btn btn-danger"
+                type="button"
+                (click)="removeskill(i)"
+              >
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
           </div>
         </div>
+        <label for="about" class="form-control-label">About</label>
+        <textarea
+          type="textarea"
+          rows="5"
+          cols="20"
+          formControlName="about"
+          placeholder="Write about Yourself here"
+          class="form-control"
+        ></textarea>
       </div>
-      <label for="about" class="form-control-label">About</label>
-      <textarea
-        type="textarea"
-        rows="5"
-        cols="20"
-        formControlName="about"
-        placeholder="Write about Yourself here"
-        class="form-control"
-      ></textarea>
       <label for="experience" class="form-check-label">Experience</label>
       <input
         type="checkbox"
@@ -97,7 +111,7 @@
           formControlName="designation"
         />
       </div>
-      <div formArrayName="projects">
+      <div formArrayName="projects" class="projects">
         <h4>Projects</h4>
         <div
           *ngFor="let my_project of projects.controls; let i = index"
@@ -143,6 +157,25 @@
             <i class="fa fa-trash"></i>
           </button>
         </div>
+      </div>
+      <div class="contact">
+        <h4>Contact Information</h4>
+        <label for="linkedin" class="form-check-label">linkedin</label>
+        <input
+          id="linkedin"
+          class="form-control"
+          formControlName="linkedin"
+          placeholder="Linkedin Url"
+          type="text"
+        />
+        <label for="github" class="form-check-label">Github</label>
+        <input
+          id="github"
+          class="form-control"
+          formControlName="github"
+          placeholder="github Url"
+          type="text"
+        />
       </div>
       <button
         class="btn btn-primary"

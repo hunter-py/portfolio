@@ -1,7 +1,18 @@
+header{
+    height: 100px;
+    h1{
+        font-size: 70px;
+    }
+}
+
 .user_data {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.form_data{
+    width: 700px;
 }
 
 input.ng-touched.ng-invalid {
