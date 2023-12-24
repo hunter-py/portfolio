@@ -30,14 +30,13 @@ export class LayoutComponent implements OnInit {
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       photo: ['', [Validators.required]],
-      skills: this.fb.array([
-        '',
-        [Validators.required, Validators.minLength(1)],
-      ]),
+      skills: this.fb.array([]),
       experience: [''],
       company: [''],
+      designation: [''],
       about: [''],
       projects: this.fb.array([]),
+      
     });
     this.addSkills();
     this.addProject();
@@ -72,6 +71,17 @@ export class LayoutComponent implements OnInit {
 
   removeProject(i: number) {
     this.projects.removeAt(i);
+  }
+
+  setValidators(checked:boolean){
+    if(checked){
+      this.my_Form.controls.company.setValidators([Validators.required]);
+    this.my_Form.controls.designation.setValidators([Validators.required]);
+    }else
+    {
+      this.my_Form.controls.company.clearValidators();
+    this.my_Form.controls.designation.clearValidators();
+    }
   }
 
   submit() {

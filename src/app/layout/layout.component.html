@@ -63,22 +63,38 @@
           </div>
         </div>
       </div>
+      <label for="about" class="form-control-label">About</label>
+      <textarea
+        type="textarea"
+        rows="5"
+        cols="20"
+        formControlName="about"
+        placeholder="Write about Yourself here"
+        class="form-control"
+      ></textarea>
       <label for="experience" class="form-check-label">Experience</label>
       <input
         type="checkbox"
-        value="true"
         class="form-check-input"
         id="experience"
         #experince
         formControlName="experience"
+        (click)="setValidators(experince.checked)"
       />
-      <div *ngIf="experince.checked">
+      <div *ngIf="experince.checked" class="experience">
         <label for="company" class="form-control-label">Company</label>
         <input
           type="text"
           class="form-control"
           id="company"
           formControlName="company"
+        />
+        <label for="designation" class="form-control-label">Designation</label>
+        <input
+          type="text"
+          class="form-control"
+          id="designation"
+          formControlName="designation"
         />
       </div>
       <div formArrayName="projects">
@@ -109,12 +125,14 @@
           <label for="project_about" class="form-control-label"
             >About Project</label
           >
-          <input
-            type="text"
+          <textarea
+            rows="5"
+            cols="5"
             class="form-control"
             id="project_about"
+            placeholder="About your project"
             formControlName="about"
-          />
+          ></textarea>
           <button class="btn btn-primary" type="button" (click)="addProject()">
             +</button
           ><button
