@@ -10,8 +10,11 @@ import { DataSharingService } from '../data-sharing.service';
 export class ProfileComponent implements OnInit {
   constructor(private route: ActivatedRoute, public ds: DataSharingService) {}
   photo: any;
+  items:any
+  form:any;
   ngOnInit() {
+    this.form=this.ds.form
     console.log(this.ds.form);
-    this.photo = this.ds.form.photo;
+    this.items=['item1','item2','1']
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from  '@angular/common/http';
 import {
   FormArray,
   FormBuilder,
@@ -18,7 +19,8 @@ export class LayoutComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public router: Router,
-    private ds: DataSharingService
+    private ds: DataSharingService,
+    private http:HttpClient
   ) {}
 
   my_Form: any;

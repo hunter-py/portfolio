@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingRoutingModule } from './app-routing-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AppRoutingRoutingModule } from './app-routing-routing.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingRoutingModule
+    AppRoutingRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
