@@ -1,4 +1,4 @@
-section {
+.profile {
   height: 100vh;
   display: flex;
   width: 100%;
@@ -17,19 +17,20 @@ section {
 }
 
 .about {
-    padding: 15px;
-    margin: 0px 20px 0px 10%;
+  padding: 15px;
+  margin: 0px 20px 0px 10%;
   p {
     font-size: 5em;
     font-weight: bolder;
   }
   .name {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    text-shadow: 0 0 1px rgb(233, 243, 39), 0 0 2px rgb(233, 243, 39), 0 0 3px rgb(233, 243, 39), 0 0 4px rgb(233, 243, 39);
+    text-shadow: 0 0 1px rgb(233, 243, 39), 0 0 2px rgb(233, 243, 39),
+      0 0 3px rgb(233, 243, 39), 0 0 4px rgb(233, 243, 39);
     -webkit-text-stroke: 1px rgb(233, 243, 39);
-    color: white; 
+    color: white;
   }
-  .designation{
+  .designation {
     font-size: 2em;
     background-color: rgb(233, 243, 39);
     color: black;
@@ -38,10 +39,49 @@ section {
     padding: 5px;
     width: max-content;
   }
-  .user-about{
+  .user-about {
     text-align: justify;
     font-size: 1em;
     font-family: cursive;
     font-weight: lighter;
   }
 }
+
+.section2 {
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  background: linear-gradient(to right, white, wheat);
+  h3 {
+    padding: 15px;
+    font-weight: bolder;
+    margin-bottom: 50px;
+  }
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .skill {
+    background: white;
+    padding: 5px;
+    margin: 10px 20px 0px 5px;
+    border: 1px solid black;
+    box-shadow: 5px 5px grey;
+    border-radius: 15px;
+    text-align: center;
+    width: 15%;
+    img{
+      width: 90%;
+    }
+    p{
+      font-weight: 500;
+      font-size: larger;
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+  }
+}
+/* .tech::-webkit-scrollbar {
+  display: none;
+} */

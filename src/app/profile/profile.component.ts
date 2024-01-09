@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataSharingService } from '../data-sharing.service';
+import { Skills } from '../skills';
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +13,7 @@ export class ProfileComponent implements OnInit {
   photo: any;
   items:any
   form:any;
+  skills:Skills[]=this.ds.tech_skills;
   ngOnInit() {
     this.form=this.ds.form
     console.log(this.ds.form);
