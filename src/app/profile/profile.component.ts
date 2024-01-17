@@ -11,12 +11,63 @@ import { Skills } from '../skills';
 export class ProfileComponent implements OnInit {
   constructor(private route: ActivatedRoute, public ds: DataSharingService) {}
   photo: any;
-  items:any
-  form:any;
-  skills:Skills[]=this.ds.tech_skills;
+  items: any;
+  form: any;
+  skills: Skills[] = this.ds.tech_skills;
   ngOnInit() {
-    this.form=this.ds.form
+    this.form = this.ds.form;
     console.log(this.ds.form);
-    this.items=['item1','item2','1']
+    this.items = ['item1', 'item2', '1'];
   }
+  experience: boolean = true;
+  projects = [
+    {
+      name: 'Google',
+      link: 'www.google.com',
+      about:
+        'This is google designed by me.Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    },
+    {
+      name: 'Facebook',
+      link: 'www.facebook.com',
+      about:
+        'This is facebook designed by me.Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    },
+    {
+      name: 'Facebook',
+      link: 'www.facebook.com',
+      about:
+        'This is facebook designed by me.Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    },
+    {
+      name: 'Facebook',
+      link: 'www.facebook.com',
+      about:
+        'This is facebook designed by me.Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    },
+    {
+      name: 'Facebook',
+      link: 'www.facebook.com',
+      about:
+        'This is facebook designed by me.Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    },
+    {
+      name: 'Facebook',
+      link: 'www.facebook.com',
+      about:
+        'This is facebook designed by me.Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    },
+    {
+      name: 'Facebook',
+      link: 'www.facebook.com',
+      about:
+        'This is facebook designed by me.Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    },
+    {
+      name: 'Facebook',
+      link: 'www.facebook.com',
+      about:
+        'This is facebook designed by me.Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    },
+  ];
 }

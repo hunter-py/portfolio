@@ -32,3 +32,13 @@
     </div>
   </div>
 </section>
+<section class="section3">
+  <h3>My Projects</h3>
+  <div class="projects">
+    <div *ngFor="let project of projects" class="project col-md-4">
+      <p class="title">{{project.name}}</p>
+      <a *ngIf="project.link" [href]="project.link">Checkout my project</a>
+      <p class="about">{{project.about}}</p>
+    </div>
+  </div>
+</section>
