@@ -1,8 +1,8 @@
-header{
-    display: flex;
-    h1{
-        font-size: 5em;
-    }
+header {
+  display: flex;
+  h1 {
+    font-size: 5em;
+  }
 }
 
 .user_data {
@@ -11,13 +11,18 @@ header{
   align-items: center;
 }
 
-.form_data{
-    width: 700px;
+.form_data {
+  width: 700px;
 }
 
 input.ng-touched.ng-invalid {
   border: 1px solid red;
   border-style: dotted;
+}
+
+input.ng-touched.ng-valid {
+  border: 1px solid green;
+  border-style: double;
 }
 
 option {
@@ -38,10 +43,10 @@ option {
   }
 }
 
-.experience{
-    .ng-touched.ng-invalid {
-        border: 1px solid red;
-      }
+.experience {
+  .ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
 }
 
 .project {

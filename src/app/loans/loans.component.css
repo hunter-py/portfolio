@@ -1,0 +1,41 @@
+td {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid;
+}
+
+i {
+  margin: 15px;
+}
+
+button {
+  margin: 20px;
+  background-color: purple;
+  color: whitesmoke;
+  max-width: 500px;
+  margin-left: 30%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.Active {
+  color: black;
+  background-color: limegreen;
+  font-weight: bold;
+  width: max-content;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.InActive {
+  color: black;
+  background-color: red;
+  font-weight: bolder;
+  width: max-content;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+}

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from  '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {
   FormArray,
   FormBuilder,
   FormControl,
-  FormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -20,7 +19,7 @@ export class LayoutComponent implements OnInit {
     private fb: FormBuilder,
     public router: Router,
     private ds: DataSharingService,
-    private http:HttpClient
+    private http: HttpClient
   ) {}
 
   my_Form: any;
@@ -30,17 +29,15 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
     this.my_Form = this.fb.group({
       fullName: ['', Validators.required],
-      phone:['', Validators.required],
+      phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       photo: ['', [Validators.required]],
       skills: this.fb.array([]),
       experience: [''],
-      company: [''],
-      designation: [''],
       about: [''],
       projects: this.fb.array([]),
-      linkedin:[''],
-      github:['']
+      linkedin: [''],
+      github: [''],
     });
     this.addSkills();
     this.addProject();
@@ -77,14 +74,20 @@ export class LayoutComponent implements OnInit {
     this.projects.removeAt(i);
   }
 
-  setValidators(checked:boolean){
-    if(checked){
-      this.my_Form.controls.company.setValidators([Validators.required]);
-    this.my_Form.controls.designation.setValidators([Validators.required]);
-    }else
-    {
-      this.my_Form.controls.company.clearValidators();
-    this.my_Form.controls.designation.clearValidators();
+  setValidators(checked: boolean) {
+    if (checked) {
+      this.my_Form.addControl(
+        'company',
+        this.fb.control('', Validators.required)
+      );
+      this.my_Form.addControl(
+        'designation',
+        this.fb.control('', Validators.required)
+      );
+    } else {
+      this.my_Form.removeControl('company');
+      this.my_Form.removeControl('designation');
+      console.log(this.my_Form);
     }
   }
 

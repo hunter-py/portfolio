@@ -1,0 +1,87 @@
+<h1>Loans</h1>
+<div class="container">
+  <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+    <div class="form-control col-md-6">
+      <label for="loan_name" class="form-control-label">Loan Name</label>
+      <input
+        class="form-control"
+        type="text"
+        formControlName="loan_name"
+        name="loan_name"
+      />
+    </div>
+    <div class="form-control col-md-6">
+      <label for="type" class="form-control-label">Loan Type</label>
+      <input
+        class="form-control"
+        type="text"
+        formControlName="type"
+        name="type"
+      />
+    </div>
+    <div class="form-control col-md-6">
+      <label for="about" class="form-control-label">About Loan</label>
+      <textarea
+        name="about"
+        class="form-control"
+        formControlName="description"
+        rows="5"
+        cols="5"
+      ></textarea>
+    </div>
+    <div class="form-control col-md-6">
+      <label for="status" class="form-control-label">Status</label>
+      <input
+        type="radio"
+        class="form-check-input"
+        value="Yes"
+        name="status"
+        formControlName="status"
+      />
+      <label class="form-check-label" for="status">Active</label>
+      <input
+        type="radio"
+        class="form-check-input"
+        value="No"
+        name="status"
+        formControlName="status"
+      />
+      <label class="form-check-label" for="status">InActive</label>
+    </div>
+    <button type="submit" class="form-control" [disabled]="!loanForm.valid">
+      Add
+    </button>
+  </form>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>S.No</td>
+      <td>Loan Name</td>
+      <td>Loan Type</td>
+      <td>Status</td>
+      <td>About Loan</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loan of loans; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ loan.loan_name }}</td>
+      <td>{{ loan.type }}</td>
+      <td>
+        <div [ngClass]="loan.status == 'Yes' ? 'Active' : 'InActive'">
+          {{ loan.status | status }}
+        </div>
+      </td>
+      <td>{{ loan.description }}</td>
+      <td>
+        <i class="fa fa-eye" (click)="viewLoan(i)"></i>
+        <i class="fa fa-edit" (click)="editLoan(i)"></i>
+        <i class="fa fa-trash" (click)="deleteLoan(i)"></i>
+        <i class="fa fa-copy" (click)="copyLoan(i)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>

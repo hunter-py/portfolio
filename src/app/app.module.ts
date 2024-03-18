@@ -7,12 +7,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingRoutingModule } from './app-routing-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LoansComponent } from './loans/loans.component';
+import { StatusPipe } from './status.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoansComponent,
+    StatusPipe
   ],
   imports: [
     BrowserModule,
